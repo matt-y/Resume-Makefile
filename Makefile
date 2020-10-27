@@ -9,7 +9,7 @@ $(RESUME_OUTPUT_NAME).txt: $(RESUME_OUTPUT_NAME).html
 	pandoc -f html -t plain $< -o $@
 
 $(RESUME_OUTPUT_NAME).html : process-template.py $(RESUME_SOURCE) $(CONFIG_SOURCE)
-	pipenv run python3 $^ > $@;
+	pipenv install && pipenv run python3 $^ > $@;
 
 spellcheck: $(RESUME_SOURCE)
 	@cat $< | aspell list --mode html > $@; \
