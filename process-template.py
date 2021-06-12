@@ -17,8 +17,9 @@ def main(argv):
 
             print(rendered_template, file=sys.stdout)
 
-    except:
+    except Exception as e:
         print('Unable to render template', mustache_template, 'using', json_data_file, file=sys.stderr)
+        print(e, file=sys.stderr)
         sys.exit(1)
 
 if __name__ == '__main__':
